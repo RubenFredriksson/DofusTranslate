@@ -7,8 +7,8 @@ from deep_translator import GoogleTranslator
 def getChatboxPositions():
 
     try:
-        plusLocation = list(pyautogui.locateOnScreen("plus.png", confidence=0.9))
-        emoteLocation = list(pyautogui.locateOnScreen("emote.png", confidence=0.9))
+        plusLocation = list(pyautogui.locateOnScreen("plus.png", confidence=0.85))
+        emoteLocation = list(pyautogui.locateOnScreen("emote.png", confidence=0.85))
     except:
         return 0, 0, 0, 0
 
