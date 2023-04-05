@@ -32,7 +32,7 @@ def main():
         # Push the text to the output text box
         for i, line in enumerate(englishDofusChat):
             if line != "" and line != None:
-                lineNumber = str(i) + ".0"
+                lineNumber = str(i + 1) + ".0"
                 outputText.insert(lineNumber, line + "\n")
 
     # Instantiate the GUI
