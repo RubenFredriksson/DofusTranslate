@@ -5,7 +5,11 @@ import time
 
 def main():
 
-    def onTranslateClick():
+    def onTranslateClick(selectedLanguage):
+
+        # Change the language to ISO 2 Letter Code
+        selectedLanguage = c.languageToISO(selectedLanguage)
+
         # Clear the output text box
         outputText.delete("1.0", tk.END)
 
@@ -23,7 +27,7 @@ def main():
         dofusChat = c.imageToString(image)
 
         # Translate the text from Spanish to English
-        englishDofusChat = chatbox.translate(dofusChat, "es", "en")
+        englishDofusChat = chatbox.translate(dofusChat, selectedLanguage, "en")
         
         # Push the text to the output text box
         for i, line in enumerate(englishDofusChat):
@@ -39,12 +43,26 @@ def main():
     verdanaFont = ('Verdana', 16)
 
     # Create the Translate button
-    translateButton = tk.Button(root, text="Translate", height=2, width=20, font=verdanaFont, command=onTranslateClick)
+    translateButton = tk.Button(root, text="Translate", height=2, width=20, font=verdanaFont, command=lambda: onTranslateClick(selectedLanguage.get()))
     translateButton.pack()
 
     # Create the output text box
-    outputText = tk.Text(root, height=40, width=100)
+    outputText = tk.Text(root, height=35, width=100)
     outputText.pack()
+
+    # Create a label for the language dropdown menu
+    label = tk.Label(root, text="Translate From:")
+    label.pack()
+
+    # Create the language dropdown menu
+    languageOptions = ["Spanish", "French"]
+    selectedLanguage = tk.StringVar(root)
+    selectedLanguage.set(languageOptions[0]) # Set the default option
+    optionMenu = tk.OptionMenu(root, selectedLanguage, *languageOptions)
+    optionMenu.pack()
+
+    label = tk.Label(root, text="to English")
+    label.pack()
 
     # Start the GUI
     root.mainloop()
