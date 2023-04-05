@@ -53,3 +53,15 @@ def imageToString(image):
 
     return clean
 
+
+def languageToISO(language):
+    
+    if language == "Spanish":
+        language = "es"
+    elif language == "French":
+        language = "fr"
+    elif language == "English":
+        language == "en"
+
+    return language
+
