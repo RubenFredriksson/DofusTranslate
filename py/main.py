@@ -27,8 +27,9 @@ def main():
         
         # Push the text to the output text box
         for i, line in enumerate(englishDofusChat):
-            lineNumber = str(i) + ".0"
-            outputText.insert(lineNumber, line + "\n")
+            if line != "" and line != None:
+                lineNumber = str(i) + ".0"
+                outputText.insert(lineNumber, line + "\n")
 
     # Instantiate the GUI
     root = tk.Tk()

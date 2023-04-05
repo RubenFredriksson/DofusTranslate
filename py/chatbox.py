@@ -22,11 +22,14 @@ def getChatboxPositions():
 
 
 def translate(text, fromLanguage, toLanguage):
-    if text[1] == "]":
-        text = text[3:]
+    # Strip the timestamps from the text
+    if ']' in text:
+        text = text.split(']', 1)[1]
 
-    pattern = r'\[[^]]*\]'
+    pattern = r'\[\d{2}:\d{2}\]'
     text = [re.sub(pattern, "", str) for str in text]
+
+    # Translate the text
     text = [GoogleTranslator(source=fromLanguage, target=toLanguage).translate(str) for str in text]
 
     return text
