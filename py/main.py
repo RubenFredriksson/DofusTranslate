@@ -1,4 +1,6 @@
 import tkinter as tk
+from tkinter import messagebox
+
 import controller as c
 import chatbox
 import time
@@ -35,6 +37,18 @@ def main():
                 lineNumber = str(i + 1) + ".0"
                 outputText.insert(lineNumber, line + "\n")
 
+    def onExportClick():
+        # Get confirmation that user wishes to export the chatbox
+        response = messagebox.askyesno("Warning", "Are you sure you want to export the chatbox?")
+        if response != 1:
+            return
+
+        # Export the chatbox
+        text = outputText.get("1.0", tk.END)
+
+        with open("output.txt", "w") as f:
+            f.write(text)
+
     # Instantiate the GUI
     root = tk.Tk()
     root.title("Dofus Chatbox Translate")
@@ -47,7 +61,7 @@ def main():
     translateButton.pack()
 
     # Create the output text box
-    outputText = tk.Text(root, height=35, width=100)
+    outputText = tk.Text(root, height=30, width=100)
     outputText.pack()
 
     # Create a label for the language dropdown menu
@@ -63,6 +77,10 @@ def main():
 
     label = tk.Label(root, text="to English")
     label.pack()
+
+    # Create the Export button
+    exportButton = tk.Button(root, text="Export", height=2, width=20, command=onExportClick, padx=-100, pady=-100)
+    exportButton.pack(padx=20, pady=20, anchor=tk.N, side=tk.RIGHT)
 
     # Start the GUI
     root.mainloop()
