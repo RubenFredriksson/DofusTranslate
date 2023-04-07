@@ -21,15 +21,29 @@ def getChatboxPositions():
     return startXPos, startYPos, endXPos, endYPos
 
 
-def translate(text, fromLanguage, toLanguage):
-    # Strip the timestamps from the text
-    if ']' in text:
-        text = text.split(']', 1)[1]
+def getEmotePosition():
+    try:
+        emoteLocation = list(pyautogui.locateOnScreen("emote.png", confidence=0.85))
+    except:
+        return 0
+    
+    return emoteLocation[0], emoteLocation[1]
 
-    pattern = r'\[\d{2}:\d{2}\]'
-    text = [re.sub(pattern, "", str) for str in text]
 
-    # Translate the text
-    text = [GoogleTranslator(source=fromLanguage, target=toLanguage).translate(str) for str in text]
+def translate(text, fromLanguage, toLanguage, mode):
+    
+    if mode == "Read":
+        # Strip the timestamps from the text
+        if ']' in text:
+            text = text.split(']', 1)[1]
+
+        pattern = r'\[\d{2}:\d{2}\]'
+        text = [re.sub(pattern, "", str) for str in text]
+
+        # Translate the text
+        text = [GoogleTranslator(source=fromLanguage, target=toLanguage).translate(str) for str in text]
+
+    elif mode == "Write":
+        text = GoogleTranslator(source=fromLanguage, target=toLanguage).translate(text)
 
     return text
