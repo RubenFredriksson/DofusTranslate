@@ -21,6 +21,6 @@ Example Dofus Chat:
 
 DofusTranslate:
 
-![image](https://user-images.githubusercontent.com/88427182/230610167-cf2728cc-acdd-4540-a49b-2f905ec64204.png)
+![image](https://user-images.githubusercontent.com/88427182/230613487-cae189c1-cb39-4b68-8557-394118bc5aa3.png)
 
 
