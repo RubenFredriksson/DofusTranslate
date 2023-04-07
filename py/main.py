@@ -78,17 +78,22 @@ def main():
 
     # Instantiate the GUI
     root = tk.Tk()
-    root.title("Dofus Chatbox Translate")
+    root.title("DofusTranslate")
 
-    # Create a Font object which will be used on the Translate button
-    verdanaFont = ('Verdana', 16)
+    # Configure the GUI
+    root.configure(bg="#1a1a1a")
+    root.option_add("*Foreground", "white")
+    root.option_add("*Text.Foreground", "white")
+    root.option_add("*Font", "Verdana")
 
     # Create the Translate button
-    translateButton = tk.Button(root, text="Translate", height=2, width=20, font=verdanaFont, command=lambda: onTranslateClick(fromLanguage.get(), toLanguage.get(), mode.get()))
+    translateButton = tk.Button(root, text="Translate", height=2, width=20, command=lambda: onTranslateClick(fromLanguage.get(), toLanguage.get(), mode.get()))
+    translateButton.configure(bg="#363636", activebackground="#454545", fg="white")
     translateButton.pack()
 
     # Create a label for the mode dropdown menu
     label = tk.Label(root, text="Mode:")
+    label.configure(bg="#1a1a1a")
     label.pack(padx=10, side=tk.LEFT)
 
     # Establish Mode Options
@@ -99,14 +104,18 @@ def main():
     mode.trace_add("write", lambda *args: onModeSelected(mode.get()))
     mode.set(modeOptions[0]) # Default = Read
     modeOptionMenu = tk.OptionMenu(root, mode, *modeOptions)
+    modeOptionMenu.configure(bg="#363636")
+    modeOptionMenu["menu"].config(bg="#363636", activebackground="black")
     modeOptionMenu.pack(padx=10, side=tk.LEFT)
 
     # Create the output text box
     outputText = tk.Text(root, height=30, width=100)
+    outputText.configure(bg="#363636", fg="white")
     outputText.pack()
 
     # Create a label for the language dropdown menu
     label = tk.Label(root, text="Translate From:")
+    label.configure(bg="#1a1a1a")
     label.pack(padx=10, side=tk.LEFT)
 
     # Establish Language Options
@@ -116,19 +125,25 @@ def main():
     fromLanguage = tk.StringVar(root)
     fromLanguage.set(languageOptions[0]) # Default = Spanish
     fromLanguageOptionMenu = tk.OptionMenu(root, fromLanguage, *languageOptions)
+    fromLanguageOptionMenu.configure(bg="#363636")
+    fromLanguageOptionMenu["menu"].config(bg="#363636", activebackground="black")
     fromLanguageOptionMenu.pack(padx=10, side=tk.LEFT)
 
     label = tk.Label(root, text="To:")
+    label.configure(bg="#1a1a1a")
     label.pack(padx=10, side=tk.LEFT)
 
     # Create the language dropdown menu
     toLanguage = tk.StringVar(root)
     toLanguage.set(languageOptions[2]) # Default = English
     toLanguageOptionMenu = tk.OptionMenu(root, toLanguage, *languageOptions)
+    toLanguageOptionMenu.configure(bg="#363636", fg="white")
+    toLanguageOptionMenu["menu"].config(bg="#363636", activebackground="black")
     toLanguageOptionMenu.pack(padx=10, side=tk.LEFT)
 
     # Create the Export button
-    exportButton = tk.Button(root, text="Export", height=2, width=20, command=onExportClick, padx=-100, pady=-100)
+    exportButton = tk.Button(root, text="Export", height=2, width=20, command=onExportClick)
+    exportButton.configure(bg="#363636", activebackground="#454545", fg="white")
     exportButton.pack(padx=20, pady=20, side=tk.RIGHT)
 
     # Start the GUI
