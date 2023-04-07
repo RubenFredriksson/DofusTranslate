@@ -44,6 +44,10 @@ def main():
             # Get the text from the interface
             text = outputText.get("1.0", tk.END)
 
+            if text != "" and text != None:
+                if text.replace("\n", "") == "":
+                    return
+
             # Translate the text
             outputChat = chatbox.translate(text, toLanguage, fromLanguage, mode)
             
@@ -67,6 +71,11 @@ def main():
         with open("output.txt", "w") as f:
             f.write(text)
 
+    def onModeSelected(mode):
+        if mode == "Write":
+            outputText.delete("1.0", tk.END)
+
+
     # Instantiate the GUI
     root = tk.Tk()
     root.title("Dofus Chatbox Translate")
@@ -87,6 +96,7 @@ def main():
 
     # Create the mode dropdown menu
     mode = tk.StringVar(root)
+    mode.trace_add("write", lambda *args: onModeSelected(mode.get()))
     mode.set(modeOptions[0]) # Default = Read
     modeOptionMenu = tk.OptionMenu(root, mode, *modeOptions)
     modeOptionMenu.pack(padx=10, side=tk.LEFT)
