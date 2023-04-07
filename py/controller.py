@@ -61,7 +61,7 @@ def languageToISO(language):
     elif language == "French":
         language = "fr"
     elif language == "English":
-        language == "en"
+        language = "en"
 
     return language
 
