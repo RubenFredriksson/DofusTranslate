@@ -7,10 +7,11 @@ import time
 
 def main():
 
-    def onTranslateClick(selectedLanguage):
+    def onTranslateClick(fromLanguage, toLanguage):
 
         # Change the language to ISO 2 Letter Code
-        selectedLanguage = c.languageToISO(selectedLanguage)
+        fromLanguage = c.languageToISO(fromLanguage)
+        toLanguage = c.languageToISO(toLanguage)
 
         # Clear the output text box
         outputText.delete("1.0", tk.END)
@@ -28,11 +29,11 @@ def main():
         # Using OCR, extract the text from the image
         dofusChat = c.imageToString(image)
 
-        # Translate the text from Spanish to English
-        englishDofusChat = chatbox.translate(dofusChat, selectedLanguage, "en")
+        # Translate the text
+        outputChat = chatbox.translate(dofusChat, fromLanguage, toLanguage)
         
         # Push the text to the output text box
-        for i, line in enumerate(englishDofusChat):
+        for i, line in enumerate(outputChat):
             if line != "" and line != None:
                 lineNumber = str(i + 1) + ".0"
                 outputText.insert(lineNumber, line + "\n")
@@ -57,7 +58,7 @@ def main():
     verdanaFont = ('Verdana', 16)
 
     # Create the Translate button
-    translateButton = tk.Button(root, text="Translate", height=2, width=20, font=verdanaFont, command=lambda: onTranslateClick(selectedLanguage.get()))
+    translateButton = tk.Button(root, text="Translate", height=2, width=20, font=verdanaFont, command=lambda: onTranslateClick(fromLanguage.get(), toLanguage.get()))
     translateButton.pack()
 
     # Create the output text box
@@ -66,17 +67,25 @@ def main():
 
     # Create a label for the language dropdown menu
     label = tk.Label(root, text="Translate From:")
-    label.pack()
+    label.pack(padx=10, side=tk.LEFT)
+
+    # Establish Language Options
+    languageOptions = ["Spanish", "French", "English"]
 
     # Create the language dropdown menu
-    languageOptions = ["Spanish", "French"]
-    selectedLanguage = tk.StringVar(root)
-    selectedLanguage.set(languageOptions[0]) # Set the default option
-    optionMenu = tk.OptionMenu(root, selectedLanguage, *languageOptions)
-    optionMenu.pack()
+    fromLanguage = tk.StringVar(root)
+    fromLanguage.set(languageOptions[0]) # Default = Spanish
+    fromLanguageOptionMenu = tk.OptionMenu(root, fromLanguage, *languageOptions)
+    fromLanguageOptionMenu.pack(padx=10, side=tk.LEFT)
 
-    label = tk.Label(root, text="to English")
-    label.pack()
+    label = tk.Label(root, text="To:")
+    label.pack(padx=10, side=tk.LEFT)
+
+    # Create the language dropdown menu
+    toLanguage = tk.StringVar(root)
+    toLanguage.set(languageOptions[2]) # Default = English
+    toLanguageOptionMenu = tk.OptionMenu(root, toLanguage, *languageOptions)
+    toLanguageOptionMenu.pack(padx=10, side=tk.LEFT)
 
     # Create the Export button
     exportButton = tk.Button(root, text="Export", height=2, width=20, command=onExportClick, padx=-100, pady=-100)
