@@ -13,3 +13,14 @@ In October 2022, a major update was implemented in Dofus that merged players fro
 #### Features In Progress
 - Currently, the program only functions correctly on a 1920x1080 resolution. I am working on making this functional for all popular resolutions.
 - An installation guide
+
+#### Images
+Example Dofus Chat:
+
+![image](https://user-images.githubusercontent.com/88427182/230609437-dcb4a9b3-ae10-44d6-8f9e-0125ee304b18.png)
+
+DofusTranslate:
+
+![image](https://user-images.githubusercontent.com/88427182/230610167-cf2728cc-acdd-4540-a49b-2f905ec64204.png)
+
+
