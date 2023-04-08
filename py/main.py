@@ -49,7 +49,7 @@ def main():
                     return
 
             # Translate the text
-            outputChat = chatbox.translate(text, toLanguage, fromLanguage, mode)
+            outputChat = chatbox.translate(text, fromLanguage, toLanguage, mode)
             
             # Write the text in the Dofus Chat
             xPos, yPos = chatbox.getEmotePosition()
@@ -72,6 +72,13 @@ def main():
             f.write(text)
 
     def onModeSelected(mode):
+
+        # Swap the languages around
+        fromLanguageValue = fromLanguage.get()
+        toLanguageValue = toLanguage.get()
+        fromLanguage.set(toLanguageValue)
+        toLanguage.set(fromLanguageValue)
+
         if mode == "Write":
             outputText.delete("1.0", tk.END)
 
