@@ -39,6 +39,36 @@ def translate(text, fromLanguage, toLanguage, mode):
 
         pattern = r'\[\d{2}:\d{2}\]'
         text = [re.sub(pattern, "", str) for str in text]
+        
+        abbreviationMap = {
+            "es": {
+                "csm": "concha su madre",
+                "ctm": "concha tu madre",
+                " mp ": " mensaje privado ",
+                "xq": "por qué",
+                "pq": "por qué"
+            },
+            "fr": {
+                "fdp": "fils de pute",
+                "mdr": "mort de rire",
+                "ptdr": "pété de rire",
+                " mp ": " message privé "
+            },
+            "en": {
+                "lmao": "laughing my ass off",
+                "lmfao": "laughing my fucking ass off",
+                "smh": "shaking my head",
+                "brb": "be right back",
+                "afk": "away from keyboard",
+                " pm ": " private message ",
+                "fml": "fuck my life",
+                "wtf": "what the fuck"
+            }
+        }
+
+        if fromLanguage in abbreviationMap:
+            for abbr, replacement in abbreviationMap[fromLanguage].items():
+                text = [str.replace(abbr, replacement) for str in text]
 
         # Translate the text
         text = [GoogleTranslator(source=fromLanguage, target=toLanguage).translate(str) for str in text]
