@@ -108,8 +108,8 @@ def main():
 
     # Create the mode dropdown menu
     mode = tk.StringVar(root)
-    mode.trace_add("write", lambda *args: onModeSelected(mode.get()))
     mode.set(modeOptions[0]) # Default = Read
+    mode.trace_add("write", lambda *args: onModeSelected(mode.get()))
     modeOptionMenu = tk.OptionMenu(root, mode, *modeOptions)
     modeOptionMenu.configure(bg="#363636")
     modeOptionMenu["menu"].config(bg="#363636", activebackground="black")
