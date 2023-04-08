@@ -26,7 +26,7 @@ def getPlusPosition():
     try:
         plusLocation = list(pyautogui.locateOnScreen(sr.getPlusImage(), confidence=0.85))
     except:
-        return 0
+        return 0, 0
     
     return plusLocation[0], plusLocation[1]
 
@@ -35,7 +35,7 @@ def getEmotePosition():
     try:
         emoteLocation = list(pyautogui.locateOnScreen(sr.getEmoteImage(), confidence=0.85))
     except:
-        return 0
+        return 0, 0
     
     return emoteLocation[0], emoteLocation[1]
 

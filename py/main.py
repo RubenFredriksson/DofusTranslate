@@ -53,6 +53,10 @@ def main():
             
             # Write the text in the Dofus Chat
             xPos, yPos = chatbox.getEmotePosition()
+
+            if xPos == 0 and yPos == 0:
+                return
+
             pyautogui.click(xPos - 200, yPos + 10)
             pyautogui.write(outputChat)
 
