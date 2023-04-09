@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import messagebox
+from tkinter import filedialog
 
 import controller as c
 import chatbox
@@ -72,8 +73,10 @@ def main():
         # Export the chatbox
         text = outputText.get("1.0", tk.END)
 
-        with open("output.txt", "w") as f:
-            f.write(text)
+        filePath = filedialog.asksaveasfilename(defaultextension=".txt")
+        if filePath:
+            with open(filePath, "w") as f:
+                f.write(text)
 
     def onModeSelected(mode):
 
