@@ -11,8 +11,8 @@ An easy to use translation tool for the popular French MMORPG Game Dofus. DofusT
 In October 2022, a major update was implemented in Dofus that merged players from different parts of the world onto a single server. Unfortunately, this led to communication challenges among players due to language differences, which has led to a sense of segregation within the community and reduced motivation to play. To address this issue, I developed an application that bridges the communication gap and facilitates seamless interaction among all players.
 
 #### Features In Progress
-- Currently, the program only functions correctly on a 1920x1080 resolution. I am working on making this functional for all popular resolutions.
-- An installation guide
+- Currently, the program only functions correctly on the most common desktop resolutions (eg. 1920x1080, 1366x768, 1440x900, 1280x720, 1600x900). I will be adding compatibility with more resolutions as time goes on.
+- An installation guide and download link.
 
 #### Images
 Example Dofus Chat:
