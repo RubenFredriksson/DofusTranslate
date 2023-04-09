@@ -56,7 +56,8 @@ def translate(text, fromLanguage, toLanguage, mode):
                 "ctm": "concha tu madre",
                 " mp ": " mensaje privado ",
                 "xq": "por qué",
-                "pq": "por qué"
+                "pq": "por qué",
+                " pj ": " personaje "
             },
             "fr": {
                 "fdp": "fils de pute",
