@@ -131,7 +131,7 @@ def main():
 
     # Create the output text box
     outputText = tk.Text(root, height=30, width=100)
-    outputText.configure(bg="#363636", fg="white")
+    outputText.configure(bg="#363636", fg="white", selectbackground="blue")
     outputText.pack()
 
     # Create a label for the language dropdown menu
