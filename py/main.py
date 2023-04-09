@@ -7,6 +7,8 @@ import chatbox
 import time
 import pyautogui
 
+previousMode = "Read"
+
 def main():
 
     def onTranslateClick(fromLanguage, toLanguage, mode):
@@ -80,14 +82,19 @@ def main():
 
     def onModeSelected(mode):
 
-        # Swap the languages around
-        fromLanguageValue = fromLanguage.get()
-        toLanguageValue = toLanguage.get()
-        fromLanguage.set(toLanguageValue)
-        toLanguage.set(fromLanguageValue)
+        global previousMode
+
+        if previousMode != None and previousMode != mode:
+            # Swap the languages around
+            fromLanguageValue = fromLanguage.get()
+            toLanguageValue = toLanguage.get()
+            fromLanguage.set(toLanguageValue)
+            toLanguage.set(fromLanguageValue)
 
         if mode == "Write":
             outputText.delete("1.0", tk.END)
+
+        previousMode = mode
 
 
     # Instantiate the GUI
