@@ -12,7 +12,16 @@ In October 2022, a major update was implemented in Dofus that merged players fro
 
 #### Features In Progress
 - Currently, the program only functions correctly on the most common desktop resolutions (eg. 1920x1080, 1366x768, 1440x900, 1280x720, 1600x900). I will be adding compatibility with more resolutions as time goes on.
-- An installation guide and download link.
+- Currently the program only functions correctly on Windows 7/8/10/11. I will be adding compatibility with macOS in the future.
+- Currently the program only functions correctly in Fullscreen Windowed mode. I will be adding compatibility with Fullscreen mode in the future.
+
+#### How to Use
+1. Download the latest release.
+2. Unzip the folder using a program such as 7-Zip or Winrar.
+3. Open DofusTranslate.exe. If there are prompts, select 'Run anyway'.
+4. Open Dofus in Fullscreen Windowed mode. This means you have the 'Minimize', 'Maximize' and 'Close' buttons at the top right hand corner of your Dofus window.
+5. If you have a second monitor, move DofusTranslate to your other monitor. Otherwise, ensure the chatbox is visible and that you do not block the chatbox.
+6. You should now be able to use all the features of the application.
 
 #### Images
 Example Dofus Chat:
