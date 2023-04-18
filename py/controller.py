@@ -2,10 +2,16 @@ import numpy
 import cv2
 import pyautogui
 import pytesseract
+import datetime
+import inspect
 
 def debug(value):
 
-    debugLog = "\n\n"
+    debugLog = ""
+    currentTime = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    callingLineNumber = inspect.currentframe().f_back.f_lineno
+    debugLog += f"--- Timestamp: {currentTime} ---\n"
+    debugLog += f"--- Line: {callingLineNumber} ---\n"
 
     if type(value) != list:
         value = [value]
