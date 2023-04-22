@@ -6,6 +6,7 @@ An easy to use translation tool for the popular French MMORPG Game Dofus. DofusT
 - **Read Mode** - Automatically detects the location of your Dofus chat and translates the text to your desired language.
 - **Write Mode** - Allows the user to type in their preferred language and translate the text into their desired language. The text is placed straight into the Dofus Chat.
 - **Export** - Saves translated text to your system as a .txt file.
+- **Speech To Text** - Allows the user to speak in their preferred language through their default microphone. The text is input into the GUI which can then be translated and placed straight into the Dofus Chat.
 
 #### Rationale
 In October 2022, a major update was implemented in Dofus that merged players from different parts of the world onto a single server. Unfortunately, this led to communication challenges among players due to language differences, which has led to a sense of segregation within the community and reduced motivation to play. To address this issue, I developed an application that bridges the communication gap and facilitates seamless interaction among all players.
