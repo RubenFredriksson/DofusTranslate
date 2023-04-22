@@ -2,6 +2,8 @@ import tkinter as tk
 from tkinter import messagebox
 from tkinter import filedialog
 
+from speechToText import listen
+
 import controller as c
 import chatbox
 import time
@@ -93,8 +95,18 @@ def main():
 
         if mode == "Write":
             outputText.delete("1.0", tk.END)
+            speechButton.pack(padx=20, pady=20, side=tk.RIGHT)
+        else:
+            speechButton.pack_forget()
 
         previousMode = mode
+
+    def onSpeechClick():
+        outputText.delete("1.0", tk.END)
+
+        text = listen(fromLanguage.get())
+
+        outputText.insert(tk.END, text)
 
 
     # Instantiate the GUI
@@ -166,6 +178,10 @@ def main():
     exportButton = tk.Button(root, text="Export", height=2, width=20, command=onExportClick)
     exportButton.configure(bg="#363636", activebackground="#454545", fg="white")
     exportButton.pack(padx=20, pady=20, side=tk.RIGHT)
+
+    # Create the Speech to Text button
+    speechButton = tk.Button(root, text="Speech to Text", height=2, width=20, command=onSpeechClick)
+    speechButton.configure(bg="#363636", activebackground="#454545", fg="white")
 
     # Start the GUI
     root.mainloop()

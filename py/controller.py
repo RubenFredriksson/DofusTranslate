@@ -71,3 +71,15 @@ def languageToISO(language):
 
     return language
 
+
+def languageToBCP47(language):
+
+    if language == "Spanish":
+        language = "es-ES"
+    elif language == "French":
+        language = "fr-FR"
+    elif language == "English":
+        language = "en-US"
+
+    return language
+
