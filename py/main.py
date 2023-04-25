@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter import messagebox
 from tkinter import filedialog
 
-from speechToText import listen
+from speechToText import listenAsync
 
 import controller as c
 import chatbox
@@ -104,8 +104,10 @@ def main():
     def onSpeechClick():
         outputText.delete("1.0", tk.END)
 
-        text = listen(fromLanguage.get())
+        # Call listenAsync and pass a callback function to handle the recognised text
+        listenAsync(fromLanguage.get(), handleRecognisedText)
 
+    def handleRecognisedText(text):
         outputText.insert(tk.END, text)
 
 

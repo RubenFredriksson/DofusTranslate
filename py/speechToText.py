@@ -1,6 +1,7 @@
 import controller as c
 import speech_recognition as sr
 import tkinter as tk
+import threading
 from tkinter import messagebox
 
 def listen(fromLanguage):
@@ -32,3 +33,10 @@ def listen(fromLanguage):
             return "Could not understand Audio."
         except sr.RequestError as e:
             return "Could not connect to Speech Recognition service"
+        
+def listenAsync(fromLanguage, callback):
+    def run():
+        text = listen(fromLanguage)
+        callback(text)
+
+    threading.Thread(target=run).start()
