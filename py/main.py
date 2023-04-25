@@ -77,7 +77,8 @@ def main():
         # Export the chatbox
         text = outputText.get("1.0", tk.END)
 
-        filePath = filedialog.asksaveasfilename(defaultextension=".txt")
+        fileTypes = [("Text File (.txt)", "*.txt"), ("All Files (.*)", "*.*")]
+        filePath = filedialog.asksaveasfilename(defaultextension=".txt", filetypes=fileTypes)
         if filePath:
             with open(filePath, "w") as f:
                 f.write(text)
